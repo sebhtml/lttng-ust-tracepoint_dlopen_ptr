@@ -10,10 +10,26 @@ include_directories(
   )
 
 add_library(
+  tracepoint-provider
+  SHARED
+  tracepoints.cpp
+  )
+
+target_link_libraries(
+  tracepoint-provider
+  dl
+  lttng-ust
+  )
+
+add_library(
   aligner-lib
   SHARED
   aligner-lib.cpp
-  tracepoints.cpp
+  )
+
+target_link_libraries(
+  aligner-lib
+  tracepoint-provider
   )
 
 add_library(
@@ -24,7 +40,6 @@ add_library(
 
 link_libraries(
   aligner-lib
-  lttng-ust
   )
 
 add_executable(

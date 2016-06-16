@@ -1,4 +1,6 @@
 
+#define TRACEPOINT_DEFINE
+
 #include "tracepoints.h"
 
 void
