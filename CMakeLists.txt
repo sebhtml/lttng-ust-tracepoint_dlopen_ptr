@@ -38,6 +38,11 @@ add_library(
   tester-lib.cpp
   )
 
+target_link_libraries(
+  tester-lib
+  tracepoint-provider
+  )
+
 link_libraries(
   aligner-lib
   )
